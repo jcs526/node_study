@@ -54,16 +54,18 @@ http.createServer(async (req, res) => {
                     users[key] = JSON.parse(body).name;
                     return res.end(JSON.stringify(users));
                 })
-            } else if (req.method === 'DELETE') {
-                if (req.url.startsWith('/user/')) {
-                    const key = req.url.split('/')[2];
-                    delete users[key];
-                    return res.end(JSON.stringify(users))
-                }
-            }
+            } 
 
             res.writeHead(404);
             return res.end('NOT FOUND')
+        }
+        else if (req.method === 'DELETE') {
+            if (req.url.startsWith('/user/')) {
+                console.log("삭제 여기까지옴");
+                const key = req.url.split('/')[2];
+                delete users[key];
+                return res.end(JSON.stringify(users))
+            }
         }
     } catch (error) {
         console.error(error);
@@ -72,6 +74,6 @@ http.createServer(async (req, res) => {
     }
 }
 )
-    .listen(8080, () => {
-        console.log('8080번 포트에서 서버 대기중입니다.');
+    .listen(8081, () => {
+        console.log('8081번 포트에서 서버 대기중입니다.');
     })
