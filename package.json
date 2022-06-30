@@ -17,6 +17,6 @@
   "homepage": "https://github.com/jcs526/node_study#readme",
   "description": "",
   "dependencies": {
-    "nodemon": "^2.0.18"
+    "nodemon": "^1.3.3"
   }
 }
